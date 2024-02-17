@@ -1,4 +1,4 @@
-from firstapp.models import Restaurant,Rating
+from firstapp.models import Restaurant,Rating,Sale
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.db import connection
@@ -24,9 +24,28 @@ def run():
     
     # restaurant = Restaurant.objects.first()
     # user = User.objects.first()
-    # rating = Rating.objects.create(user=user,restaurant=restaurant, rating = 3)
+    # rating = Rating.objects.create(user=user,restaurant=restaurant, rating = 5)
     # print(restaurant)
     # print(connection.queries)
     
 # manage.py shell_plus --print-sql 
-    print(Rating.objects.filter(rating = 3))
+    restaurant = Restaurant.objects.first()
+    print(restaurant)
+    # print(Rating.objects.filter(rating = 3))
+    # print(restaurant.ratings.all())
+    # Sale.objects.create(
+    #     restaurant = Restaurant.objects.first(),
+    #     income = 2.33,
+    #     datetime = timezone.now()
+    # )
+    # Sale.objects.create(
+    #     restaurant = Restaurant.objects.first(),
+    #     income = 2.56,
+    #     datetime = timezone.now()
+    # )
+    # Sale.objects.create(
+    #     restaurant = Restaurant.objects.first(),
+    #     income = 5.33,
+    #     datetime = timezone.now()
+    # )
+    print(restaurant.sales.all())
