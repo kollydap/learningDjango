@@ -23,14 +23,14 @@ def run():
     # )
     
     # restaurant = Restaurant.objects.first()
-    # user = User.objects.first()
+    user = User.objects.first()
     # rating = Rating.objects.create(user=user,restaurant=restaurant, rating = 5)
     # print(restaurant)
     # print(connection.queries)
     
 # manage.py shell_plus --print-sql 
     restaurant = Restaurant.objects.first()
-    print(restaurant)
+    
     # print(Rating.objects.filter(rating = 3))
     # print(restaurant.ratings.all())
     # Sale.objects.create(
@@ -48,4 +48,9 @@ def run():
     #     income = 5.33,
     #     datetime = timezone.now()
     # )
-    print(restaurant.sales.all())
+    rating = Rating(user=user, restaurant = restaurant, rating = 4)
+    rating.full_clean()
+    rating.save()
+    
+    
+   
